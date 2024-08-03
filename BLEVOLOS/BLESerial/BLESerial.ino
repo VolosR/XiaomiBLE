@@ -59,7 +59,8 @@ bool connectToServer(BLEAddress pAddress) {
   Serial.println(" - Found our characteristic");
 
   // Read the value of the characteristic.
-  std::string value = pRemoteCharacteristic->readValue();
+  String arduinoString = pRemoteCharacteristic->readValue();
+  std::string value = arduinoString.c_str(); // Convert Arduino String to std::string
   Serial.print("The characteristic value was: ");
   Serial.println(value.c_str());
 
